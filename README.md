@@ -58,6 +58,7 @@ Before running the application locally, you need to install:
    The application will open at: http://localhost:3000
 
 ## Using the Application
+![image](https://github.com/user-attachments/assets/7cbbef86-484e-4b0f-9d00-186dd6d71bf5)
 
 1. **Enter Matrix Dimensions**
    - Rows (N): Enter the number of rows (maximum 500)
