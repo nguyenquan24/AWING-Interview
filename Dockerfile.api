@@ -1,0 +1,23 @@
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+COPY ["TreasureHunt.API/TreasureHunt.API.csproj", "TreasureHunt.API/"]
+COPY ["TreasureHunt.Core/TreasureHunt.Core.csproj", "TreasureHunt.Core/"]
+COPY ["TreasureHunt.Infrastructure/TreasureHunt.Infrastructure.csproj", "TreasureHunt.Infrastructure/"]
+COPY ["TreasureHunt.Application/TreasureHunt.Application.csproj", "TreasureHunt.Application/"]
+RUN dotnet restore "TreasureHunt.API/TreasureHunt.API.csproj"
+COPY . .
+WORKDIR "/src/TreasureHunt.API"
+RUN dotnet build "TreasureHunt.API.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "TreasureHunt.API.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "TreasureHunt.API.dll"] 
