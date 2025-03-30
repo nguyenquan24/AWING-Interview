@@ -1,10 +1,12 @@
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 using TreasureHunt.Application.Services;
 using TreasureHunt.Core.Interfaces;
 using TreasureHunt.Infrastructure.Data;
 
 namespace TreasureHunt.API
 {
+    [ExcludeFromCodeCoverage]
     public class Startup
     {
         public IConfiguration Configuration { get; }

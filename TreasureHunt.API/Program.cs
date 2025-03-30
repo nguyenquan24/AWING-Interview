@@ -1,11 +1,10 @@
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
+using System.Diagnostics.CodeAnalysis;
 using TreasureHunt.Infrastructure.Data;
 
 namespace TreasureHunt.API
 {
+    [ExcludeFromCodeCoverage]
     public class Program
     {
         public static void Main(string[] args)

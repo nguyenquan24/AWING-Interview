@@ -1,18 +1,16 @@
 version: '3.8'
 
 services:
-  sql:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=YourStrong!Passw0rd
-      - MSSQL_PID=Express
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
     ports:
-      - "1433:1433"
-    volumes:
-      - sqldata:/var/opt/mssql
+      - "80:80"
+    depends_on:
+      - api
     networks:
-      - treasure-hunt-network
+      - app-network
 
   api:
     build:
@@ -24,27 +22,25 @@ services:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:80
       - ConnectionStrings__DefaultConnection=Server=sql;Database=TreasureHuntDb;User Id=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True;
-    volumes:
-      - ./wait-for-it.sh:/wait-for-it.sh
     depends_on:
       - sql
     networks:
-      - treasure-hunt-network
-    restart: on-failure:5
+      - app-network
 
-  frontend:
-    build:
-      context: .
-      dockerfile: Dockerfile.frontend
+  sql:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong!Passw0rd
     ports:
-      - "80:80"
-    depends_on:
-      - api
+      - "1433:1433"
+    volumes:
+      - sqldata:/var/opt/mssql
     networks:
-      - treasure-hunt-network
+      - app-network
 
 networks:
-  treasure-hunt-network:
+  app-network:
     driver: bridge
 
 volumes:
