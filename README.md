@@ -2,7 +2,9 @@
 
 A web application that helps find the optimal path to collect treasures with minimum fuel consumption.
 
-## Prerequisites
+## Running Locally
+
+### Prerequisites
 
 Before running the application locally, you need to install:
 
@@ -18,8 +20,6 @@ Before running the application locally, you need to install:
    - Download SQL Server Express from: https://www.microsoft.com/en-us/sql-server/sql-server-downloads
    - Or SQL Server Developer Edition if you prefer
    - Remember the connection string details you set during installation
-
-## Running Locally
 
 ### Backend (API)
 
@@ -57,26 +57,6 @@ Before running the application locally, you need to install:
    ```
    The application will open at: http://localhost:3000
 
-## Using the Application
-![image](https://github.com/user-attachments/assets/7cbbef86-484e-4b0f-9d00-186dd6d71bf5)
-
-1. **Enter Matrix Dimensions**
-   - Rows (N): Enter the number of rows (maximum 500)
-   - Columns (M): Enter the number of columns (maximum 500)
-   - Max Chest Number (P): Enter the maximum chest number (maximum 9)
-
-2. **Fill the Treasure Map Matrix**
-   - Enter numbers from 1 to P in the matrix cells
-   - Each number represents a chest that must be collected in sequence
-
-3. **Solve**
-   - Click the "SOLVE" button to find the optimal path
-   - The result will show the minimum fuel needed
-
-4. **View History**
-   - Previous solutions are saved and displayed below
-   - Each entry shows the matrix size, number of chests, and result
-
 ## Running with Docker
 
 If you don't want to install the prerequisites, you can run the application using Docker:
@@ -98,6 +78,26 @@ If you don't want to install the prerequisites, you can run the application usin
    ```bash
    docker-compose down
    ```
+
+## Using the Application
+![image](https://github.com/user-attachments/assets/7cbbef86-484e-4b0f-9d00-186dd6d71bf5)
+
+1. **Enter Matrix Dimensions**
+   - Rows (N): Enter the number of rows (maximum 500)
+   - Columns (M): Enter the number of columns (maximum 500)
+   - Max Chest Number (P): Enter the maximum chest number (maximum 9)
+
+2. **Fill the Treasure Map Matrix**
+   - Enter numbers from 1 to P in the matrix cells
+   - Each number represents a chest that must be collected in sequence
+
+3. **Solve**
+   - Click the "SOLVE" button to find the optimal path
+   - The result will show the minimum fuel needed
+
+4. **View History**
+   - Previous solutions are saved and displayed below
+   - Each entry shows the matrix size, number of chests, and result
 
 ## Troubleshooting
 
