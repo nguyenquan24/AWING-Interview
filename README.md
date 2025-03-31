@@ -28,12 +28,17 @@ Before running the application locally, you need to install:
    cd TreasureHunt.API
    ```
 
-2. Create and update the database:
+2. Make sure you have installed EF Core CLI:
+   ```bash
+   dotnet tool install --global dotnet-ef
+   ```
+   
+3. Create and update the database:
    ```bash
    dotnet ef database update
-   ```
+   ``` 
 
-3. Start the API:
+4. Start the API:
    ```bash
    dotnet run
    ```
