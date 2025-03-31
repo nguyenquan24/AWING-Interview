@@ -90,7 +90,7 @@ If you don't want to install the prerequisites, you can run the application usin
 1. **Enter Matrix Dimensions**
    - Rows (N): Enter the number of rows (maximum 500)
    - Columns (M): Enter the number of columns (maximum 500)
-   - Max Chest Number (P): Enter the maximum chest number (maximum 9)
+   - Max Chest Number (P): Enter the maximum chest number (maximum N*M)
 
 2. **Fill the Treasure Map Matrix**
    - Enter numbers from 1 to P in the matrix cells
